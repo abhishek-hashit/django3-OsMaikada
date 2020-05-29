@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Anaheim' rel='stylesheet'>
+
+
+<h1 style="color:rgb(100, 102, 27);font-size:28px;font-family: 'Anaheim';" class="text-center mt-5" id="blogdetailtitle">{{ blog.title }}</h1>
+
+<h5 class="text-center text-muted mb-5" style="color:rgb(124, 124, 112);font-family: 'Dancing Script';font-size:18px;">By: {{ blog.owner }}</h5>
+
+{{ blog.description|safe }}
+
+<br><br>
+<h5 style="color:rgb(124, 124, 112);font-size:12px;" class="text-muted">{{ blog.whencreated|date:'M d Y' }}</h5>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<link href='https://fonts.googleapis.com/css?family=Beth Ellen' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Caveat' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Hi Melody' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Gaegu' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Anaheim' rel='stylesheet'>
+
+<h1 id="blogtitle" style="margin-top:40px;" class="font-weight-bold text-center">Blogs<br>
+  <img src="{% static 'Bird.png' %}" height=180 width=300 style="margin-top:-225px;opacity:0.3;"></h1>
+
+<!-- <h3 class="text-center mb-5">There are {{ blogs.count }} blog{{ blogs.count|pluralize }}</h3> -->
+
+{% for blog in blogs %}
+<div style="background-color:rgb(230, 230, 222);" class="row justify-content-center my-3">
+  <div class="col-md-10">
+    <a href="{% url 'blogs:specific_blog' blog.id %}">
+      <h2 style="color:rgb(68, 70, 12);font-family: 'Anaheim';font-size:22px;">{{ blog.title }}</h2>
+    </a>
+    <!-- <h4>{{ blog.description|striptags|truncatechars:25 }}</h4> -->
+    <h5 style="color:rgb(100, 102, 27);font-family: 'Dancing Script';font-size:18px;">By {{ blog.owner }}</h5>
+    <h5 style="color:rgb(124, 124, 112);font-size:12px;" class="text-muted">{{ blog.whencreated|date:'M d Y' }}</h5>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

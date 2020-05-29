@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<link href='https://fonts.googleapis.com/css?family=Hi Melody' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Basic' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Yantramanav' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Gaegu' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Anaheim' rel='stylesheet'>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+
+<div class="row justify-content-center" style="height: auto; min-width:100%; margin-top:0.5px;">
+    <video height=720 autoplay loop>
+      <source src="{% static 'Thunderstorm.mp4' %}" type="video/mp4">
+    </video>
+</div>
+<div class="overlay-desc" style="position: absolute;height:auto;">
+  <h2 style="margin-top:-550px;font-size:24px;color:rgb(181, 182, 129);font-family: 'Hi Melody';">Right in the lap of nature, Osho Maikada is located in an isolated space away <br> from chaos of civilization where you can relax, meditate and treat your soul <br> with the sheer opportunity to get in touch with the joy of being. Our space <br> is a paradise for meditation lover or nature lover or both</h2>
+</div>
+
+
+
+  <!-- <div class="row justify-content-center my-3">
+      <div class="col-5">
+        <img src="{% static 'Photo.jpg' %}" height=1000 width=750 class="img-fluid">
+    </div>
+  </div> -->
+
+
+<!-- <div class="row justify-content-center mb-3">
+  <div class="col-md-9 text-center">
+    <h2 id="hometext" style="font-size:24px;color:rgb(100, 102, 27);font-family: 'Hi Melody';margin-top:10px;">"Right in the lap of nature, Osho Maikada is located in an isolated space away from chaos of civilization where you can relax, meditate and treat your soul with the sheer opportunity to get in touch with the joy of being. Our space is a paradise for meditation lover or nature lover or both"</h2>
+  </div>
+</div> -->
+
+<h2 style="color:rgb(114, 128, 115);font-size:32px;" class="mt-5">Events
+  <!-- <img style="opacity:0.4; float:right;" src="{% static 'BV2.png' %}" height=200 width=200 class="img-fluid"><br> -->
+</h2>
+<hr>
+<div class="row">
+  {% for event in events %}
+  <div class="col-lg-4 col-md-6">
+
+    {% if event.url %}
+    <a href="{{ event.url }}"  target="_blank">
+      <img src="{{ event.image.url }}" class="img-fluidp mb-2" width=255 height=150 target="_blank">
+    </a>
+    {% else %}
+    <img src="{{ event.image.url }}" class="img-fluidp mb-2" width=300 height=200>
+    {% endif %}
+
+    <h3 style="color:rgb(100, 102, 27);font-size:22px;" >{{ event.title }}</h3>
+    <p style="color:rgb(124, 124, 112);font-size:16px;">{{ event.description }}</p>
+
+  </div>
+
+  {% endfor %}
+</div>
+
+<h2 style="color:rgb(114, 128, 115);font-size:32px;" class="mt-5">Highlights</h2>
+<hr>
+
+<div class="row" style="box-sizing: border-box;">
+  <div class="column" style="float: left; width: 30%; padding: 15px;">
+    <img src="{% static 'Aboutus1.jpg' %}" style="float: center;" width=300 height=500>
+  </div>
+  <div class="column" style="float: left; width: 70%; padding: 15px; font-size:20px; margin-bottom:45px;">
+    <img src="{% static 'bed.png' %}" style="float: center;" title = "single-beds" width=50 height=50><p style="color:rgb(73, 73, 69); font-family: 'Yantramanav'; white-space: nowrap;"><nobr> 8 Rooms, 18 Beds </nobr></p>
+    <img src="{% static 'meditation.png' %}" title = "meditation" style="float: center;" width=50 height=50><p style="color:rgb(73, 73, 69);font-family: 'Yantramanav';"> Indoor Meditation Hall </p>
+    <img src="{% static 'Yoga.png' %}" style="float: center;" title = "yoga" width=50 height=50> <p style="color:rgb(73, 73, 69); font-family: 'Yantramanav';"> Open Yoga Space </p>
+    <i class="fas fa-walking" style='font-size:45px;color:rgb(83, 97, 7)'></i><p style="color:rgb(73, 73, 69); font-family: 'Yantramanav';"> 5-min Walk to Forest & Ganges</p>
+    <i class="fas fa-motorcycle" style='font-size:45px;color:rgb(18, 148, 94)'></i><p style="color:rgb(73, 73, 69); font-family: 'Yantramanav';"> 25-min Drive to Laxman Jhula</p>
+    <!-- <p style="color:rgb(88, 83, 10); font-family: 'Yantramanav'; font-size:26px;"> other amenities: </p> -->
+  </div>
+  <!-- <div class="column" style="float: left; width: 30%; padding: 15px;margin-bottom:45px;">
+    <img src="{% static 'Wifi.png' %}" style="float: center;" width=81 height=81> 
+    &nbsp; &nbsp; &nbsp; &nbsp; <img src="{% static 'AC.png' %}" style="float: center;" width=67 height=67><br>
+    <p> &nbsp;</p>
+    <img src="{% static 'camping.png' %}" title="camping" style="float: center;" width=81 height=81> 
+    &nbsp; &nbsp; &nbsp; &nbsp; <img src="{% static 'massage.png' %}" title="Massage" style="float: center;" width=81 height=81><br>
+    <p> &nbsp;</p>
+    <img src="{% static 'River.png' %}" style="float: center;" width=81 height=81>
+    &nbsp; &nbsp; &nbsp; &nbsp; <img src="{% static 'vegetable.png' %}" title="Home-cooked Veg meals" style="float: center;" width=81 height=81><br>
+    &nbsp; &nbsp; &nbsp; &nbsp; <img src="{% static 'elephant.png' %}" title="Elephant Spotting" style="float: center;" width=81 height=81>
+  </div> -->
+
+{% endblock %}
