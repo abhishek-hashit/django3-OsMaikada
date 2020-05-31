@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'm&z$l(a1=&akixy--=ccdgbo*@4@gf&mtwp1i8)-jf9o91i+ls'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.oshomaikada.com']
 
 
 # Application definition
